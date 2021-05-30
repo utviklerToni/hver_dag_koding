@@ -12,7 +12,6 @@ const User = require('../../models/User');
 // #endpoint   > api/users
 // #name       > test route
 // #access     > public
-
 router.post(
 	'/',
 	[
