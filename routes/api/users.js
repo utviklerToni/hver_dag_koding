@@ -6,6 +6,7 @@ const { check, validationResult } = require('express-validator');
 // #endpoint   > api/users
 // #name       > test route
 // #access     > public
+
 router.post(
 	'/',
 	[
