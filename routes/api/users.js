@@ -3,6 +3,8 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const config = require('config');
 
 const User = require('../../models/User');
 
@@ -36,7 +38,9 @@ router.post(
 			let user = await User.findOne({ email });
 
 			if (user) {
-				res.status(400).json({ errors: [{ msg: 'User already' }] });
+				return res
+					.status(400)
+					.json({ errors: [{ msg: 'User already exists' }] });
 			}
 
 			// fetching gravatar
@@ -67,7 +71,24 @@ router.post(
 
 			// returning JWT
 
-			res.send('user route');
+			const payload = {
+				user: {
+					// mongodb already extracts its "_id" as id
+					id: user.id,
+				},
+			};
+
+			// ### signing token
+			// plzz use less seconds than 360000 in production
+			jwt.sign(
+				payload,
+				config.get('jwtSecret'),
+				{ expiresIn: 360000 },
+				(err, token) => {
+					if (err) throw err;
+					res.json({ token });
+				}
+			);
 		} catch (err) {
 			console.error(err.message);
 			res.status(500).send('server error');
