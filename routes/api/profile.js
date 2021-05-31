@@ -47,7 +47,7 @@ router.post(
 		auth,
 		[
 			check('status', 'Status is required').not().isEmpty(),
-			check('dishes', 'dishes are required').not().isEmpty(),
+			check('dishes', 'List of dish are required').not().isEmpty(),
 		],
 	],
 	async (req, res) => {
