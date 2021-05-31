@@ -16,11 +16,14 @@ const ProfileSchema = new mongoose.Schema({
 		type: String,
 	},
 
-	chefs_dish: {
+	dishes: {
 		type: [String],
 		required: true,
 	},
 	about: {
+		type: String,
+	},
+	location: {
 		type: String,
 	},
 	experience: [
@@ -54,6 +57,9 @@ const ProfileSchema = new mongoose.Schema({
 	],
 	video: {
 		odysse: {
+			type: String,
+		},
+		youtube: {
 			type: String,
 		},
 	},
