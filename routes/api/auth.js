@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 
 // #endpoint  > api/auth
 // #name      > auth route
+// #task      > get all users
 // #access    > public
 router.get('/', auth, async (req, res) => {
 	try {
@@ -21,7 +22,7 @@ router.get('/', auth, async (req, res) => {
 
 // #route type > POST
 // #endpoint   > api/auth
-// #name       > login user & get token
+// #task       > login user & get token
 // #access     > public
 router.post(
 	'/',
