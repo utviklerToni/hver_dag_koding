@@ -162,7 +162,7 @@ router.delete('/', auth, async (req, res) => {
 // desc => add profile experince
 // access => private
 router.put(
-	'/experince',
+	'/experience',
 	[
 		auth,
 		[
@@ -181,7 +181,7 @@ router.put(
 		const { title, restaurant, location, from, to, current, description } =
 			req.body;
 
-		const newEx = {
+		const newExp = {
 			title,
 			restaurant,
 			location,
@@ -199,7 +199,7 @@ router.put(
 			res.json(profile);
 		} catch (err) {
 			console.error(err.message);
-			req.status(500).send('server error');
+			res.status(500).send('server error');
 		}
 	}
 );
