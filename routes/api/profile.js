@@ -36,11 +36,9 @@ router.get('/me', auth, async (req, res) => {
 	}
 });
 
-// #req type  > POST
-// #endpoint  > api/profile
-// #name      > profile route
-// #task      > create/update users profile
-// #access    > private
+// routes to create & update profile
+// api/profile
+// POST request
 router.post(
 	'/',
 	[
@@ -100,6 +98,108 @@ router.post(
 		} catch (err) {
 			console.error(err.message);
 			res.status(500).send('server error');
+		}
+	}
+);
+
+// routes to list all the profiles
+// GET request
+// routes: api/profile
+router.get('/', async (req, res) => {
+	try {
+		const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+		res.json(profiles);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('server error');
+	}
+});
+
+// routes to list profiles by user ID
+// GET request
+// routes: api/profile/user/:user_ID
+router.get('/user/:user_id', async (req, res) => {
+	try {
+		const profile = await Profile.findOne({
+			user: req.params.user_id,
+		}).populate('user', ['name', 'avatar']);
+		if (!profile)
+			return res
+				.status(400)
+				.json({ msg: 'No profile for this user, maybe create one?' });
+
+		res.json(profile);
+	} catch (err) {
+		console.error(err.message);
+
+		if (err.kind == 'ObjectId') {
+			return res
+				.status(400)
+				.json({ msg: 'No profile for this user, maybe create one?' });
+		}
+
+		res.status(500).send('server error');
+	}
+});
+
+// route  => DELETE api/profile
+// desc   => delete profile, user and its posts
+// access => Private
+router.delete('/', auth, async (req, res) => {
+	try {
+		await Profile.findOneAndRemove({ user: req.user.id });
+
+		await User.findOneAndRemove({ _id: req.user.id });
+
+		res.json({ msg: 'user deleted' });
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('server error');
+	}
+});
+
+// route => api/profile/experince
+// desc => add profile experince
+// access => private
+router.put(
+	'/experince',
+	[
+		auth,
+		[
+			check('title', 'Title is required').not().isEmpty(),
+			check('restaurant', 'company name is required').not().isEmpty(),
+			check('from', 'From date is required').not().isEmpty(),
+		],
+	],
+	async (req, res) => {
+		const errors = validationResult(req);
+
+		if (!errors.isEmpty()) {
+			return res.status(400).json({ errors: errors.array() });
+		}
+
+		const { title, restaurant, location, from, to, current, description } =
+			req.body;
+
+		const newEx = {
+			title,
+			restaurant,
+			location,
+			from,
+			to,
+			current,
+			description,
+		};
+
+		try {
+			const profile = await Profile.findOne({ user: req.user.id });
+			profile.experience.unshift(newExp);
+			await profile.save();
+
+			res.json(profile);
+		} catch (err) {
+			console.error(err.message);
+			req.status(500).send('server error');
 		}
 	}
 );

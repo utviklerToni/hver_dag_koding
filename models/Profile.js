@@ -32,7 +32,7 @@ const ProfileSchema = new mongoose.Schema({
 				type: String,
 				required: true,
 			},
-			restuarant: {
+			restaurant: {
 				type: String,
 				required: true,
 			},
