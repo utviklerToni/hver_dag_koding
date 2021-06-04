@@ -1,6 +1,10 @@
-# portfolio_project_0.6
+# Portfolio Project 0.6
 
-A website for chefs to share recipe
+a simple Chef web app
+
+<!-- # portfolio_project_0.6
+
+a simple full-stack website for chefs to share recipe -->
 
 this web app is using REST API & has CRUD functionality.
 
