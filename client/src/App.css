@@ -1,0 +1,36 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+a:visited,
+a:active,
+a:link {
+	text-decoration: none;
+}
+
+.flex-box {
+	display: flex;
+}
+
+.nav-background-color {
+	background-color: rgb(116, 184, 116);
+}
+
+.nav-margin {
+	margin: 0 30px;
+}
+
+.border-box {
+	border: 3px solid rgb(184, 69, 69);
+}
+
+.nav-pad {
+	padding: 18px 36px;
+}
+
+.pad-marg {
+	padding: 0 30px;
+	margin: 9px 18px;
+}
