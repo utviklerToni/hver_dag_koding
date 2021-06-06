@@ -1,31 +1,36 @@
 import React, { Fragment, useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setAlert } from '../../actions/alert';
+import PropTypes from 'prop-types';
 
-const Register = () => {
+const Register = ({ setAlert }) => {
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
 		password: '',
+		re_enter_password: '',
 	});
 
-	const { name, email, password } = formData;
+	const { name, email, password, re_enter_password } = formData;
+
 	const onChange = (e) =>
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
-		const newUser = {
-			name,
-			email,
-			password,
-		};
-
-		console.log(newUser);
+		if (password !== re_enter_password) {
+			setAlert('password did not match', 'danger');
+		} else {
+			setAlert('registered successfully', 'success');
+			console.log('success');
+		}
 	};
 
 	return (
 		<Fragment>
+			<h1>Sign up</h1>
 			<p>create your account</p>
 
 			<form onSubmit={(e) => onSubmit(e)}>
@@ -37,7 +42,6 @@ const Register = () => {
 						value={name}
 						onChange={(e) => onChange(e)}
 						required
-						autoComplete='your username or real name'
 					/>
 				</div>
 				<div className='form-element'>
@@ -47,7 +51,6 @@ const Register = () => {
 						value={email}
 						name='email'
 						onChange={(e) => onChange(e)}
-						autoComplete='email'
 					/>
 				</div>
 				<div className='form-element'>
@@ -57,7 +60,15 @@ const Register = () => {
 						value={password}
 						name='password'
 						onChange={(e) => onChange(e)}
-						autoComplete='password'
+					/>
+				</div>
+				<div className='form-element'>
+					<input
+						type='password'
+						placeholder='re-enter password'
+						value={re_enter_password}
+						name='re_enter_password'
+						onChange={(e) => onChange(e)}
 					/>
 				</div>
 				<button type='submit'>Create</button>
@@ -70,4 +81,9 @@ const Register = () => {
 	);
 };
 
-export default Register;
+Register.propTypes = {
+	setAlert: PropTypes.func.isRequired,
+};
+
+// connect() takes 2 arguments, state and an object with action
+export default connect(null, { setAlert })(Register);

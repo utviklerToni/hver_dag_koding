@@ -34,3 +34,34 @@ a:link {
 	padding: 0 30px;
 	margin: 9px 18px;
 }
+
+.alert {
+	padding: 0.8rem;
+	margin: 1rem 0;
+	opacity: 0.9;
+	background: lightblue;
+	color: grey;
+}
+
+.alert-primary {
+}
+
+.alert-light {
+	background: aquamarine;
+	color: black;
+}
+
+.alert-dark {
+	background: black;
+	color: aqua;
+}
+
+.alert-danger {
+	background: rgb(184, 69, 69);
+	color: bisque;
+}
+
+.alert-success {
+	background: greenyellow;
+	color: black;
+}
