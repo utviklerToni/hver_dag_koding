@@ -7,4 +7,6 @@ export const setAlert = (msg, alertType) => (dispath) => {
 		type: SET_ALERT,
 		payload: { msg, alertType, id },
 	});
+
+	setTimeout(() => dispath({ type: REMOVE_ALERT, payload: id }), 3600);
 };
