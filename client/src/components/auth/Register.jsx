@@ -1,10 +1,11 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
@@ -23,10 +24,14 @@ const Register = ({ setAlert }) => {
 		if (password !== re_enter_password) {
 			setAlert('password did not match', 'danger');
 		} else {
-			setAlert('registered successfully', 'success');
-			console.log('success');
+			register({ name, email, password });
 		}
 	};
+
+	// redirect
+	if (isAuthenticated) {
+		return <Redirect to='/dashboard' />;
+	}
 
 	return (
 		<Fragment>
@@ -51,6 +56,7 @@ const Register = ({ setAlert }) => {
 						value={email}
 						name='email'
 						onChange={(e) => onChange(e)}
+						required
 					/>
 				</div>
 				<div className='form-element'>
@@ -60,6 +66,7 @@ const Register = ({ setAlert }) => {
 						value={password}
 						name='password'
 						onChange={(e) => onChange(e)}
+						required
 					/>
 				</div>
 				<div className='form-element'>
@@ -69,6 +76,7 @@ const Register = ({ setAlert }) => {
 						value={re_enter_password}
 						name='re_enter_password'
 						onChange={(e) => onChange(e)}
+						required
 					/>
 				</div>
 				<button type='submit'>Create</button>
@@ -83,7 +91,13 @@ const Register = ({ setAlert }) => {
 
 Register.propTypes = {
 	setAlert: PropTypes.func.isRequired,
+	register: PropTypes.func.isRequired,
+	isAuthenticated: PropTypes.bool,
 };
 
+const mapStateToProps = (state) => ({
+	isAuthenticated: state.auth.isAuthenticated,
+});
+
 // connect() takes 2 arguments, state and an object with action
-export default connect(null, { setAlert })(Register);
+export default connect(mapStateToProps, { setAlert, register })(Register);
