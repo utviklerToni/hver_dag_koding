@@ -1,9 +1,11 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCurrentProfile } from '../../actions/profile';
 import Spinner from '../layout/Spinner';
+import EditDashboard from './EditDashboard';
 
 const Dashboard = ({
 	getCurrentProfile,
@@ -21,11 +23,15 @@ const Dashboard = ({
 			<h1 className=''>Dashboard</h1>
 			<p>welcome {user && user.name}</p>
 			{profile !== null ? (
-				<Fragment>has</Fragment>
+				<Fragment>
+					<EditDashboard />
+				</Fragment>
 			) : (
 				<Fragment>
 					<p>no profile set, maybe create one ?</p>
-					<Link to='/create-profile'>Create profile </Link>
+					<Link to='/create-profile' className='material-btn'>
+						Create profile
+					</Link>
 				</Fragment>
 			)}
 		</Fragment>

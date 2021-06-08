@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
+import { Button } from '@material-ui/core';
 
 const Login = ({ login, isAuthenticated }) => {
 	const [formData, setFormData] = useState({
@@ -49,10 +50,18 @@ const Login = ({ login, isAuthenticated }) => {
 						minLength={6}
 					/>
 				</div>
-				<button type='submit'>Login</button>
+				<br />
+				<Button variant='contained' color='primary' type='submit'>
+					Login
+				</Button>
 			</form>
 			<p>
-				not registered yet? <Link to='/register'>Register now </Link>
+				not registered yet?
+				<Link to='/register'>
+					<Button variant='contained' color='primary'>
+						Register now
+					</Button>
+				</Link>
 			</p>
 		</Fragment>
 	);

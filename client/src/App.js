@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Login from './components/auth/Login';
@@ -15,6 +15,7 @@ import store from './store';
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 import CreateProfile from './components/profile/CreateProfile';
+import EditProfile from './components/profile/EditProfile';
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token);
@@ -41,6 +42,11 @@ const App = () => {
 								exact
 								path='/create-profile'
 								component={CreateProfile}
+							/>
+							<PrivateRoute
+								exact
+								path='/edit-profile'
+								component={EditProfile}
 							/>
 						</Switch>
 					</section>
