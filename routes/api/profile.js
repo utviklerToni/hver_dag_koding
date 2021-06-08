@@ -66,7 +66,8 @@ router.post(
 		if (status) profileFields.status = status;
 		if (about) profileFields.about = about;
 		if (location) profileFields.location = location;
-		if (dishes) profileFields.dishes = dishes.map((dish) => dish.trim());
+		if (dishes)
+			profileFields.dishes = dishes.split(',').map((dish) => dish.trim());
 
 		// setting video
 		profileFields.video = {};
