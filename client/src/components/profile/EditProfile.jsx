@@ -12,7 +12,9 @@ const EditProfile = ({
 }) => {
 	// form data state
 	const [formData, setFormData] = useState({
+		status: '',
 		restaurant: '',
+
 		dishes: '',
 		about: '',
 		location: '',
@@ -20,16 +22,18 @@ const EditProfile = ({
 		youtube: '',
 	});
 
-	// getting all the above data from the forms
-	const { restaurant, dishes, about, location, odysse, youtube } = formData;
-
 	// social media input state
 	const [recipeVideo, setRecipeVideo] = useState(false);
+
+	// getting all the above data from the forms
+	const { status, restaurant, dishes, about, location, odysse, youtube } =
+		formData;
 
 	useEffect(() => {
 		getCurrentProfile();
 
 		setFormData({
+			status: loading || !profile.status ? '' : profile.status,
 			restaurant: loading || !profile.restaurant ? '' : profile.restaurant,
 			dishes: loading || !profile.dishes ? '' : profile.dishes.join(','),
 			about: loading || !profile.about ? '' : profile.about,
@@ -43,9 +47,8 @@ const EditProfile = ({
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 	};
 
-	const onSubmit = (event) => {
-		event.preventDefault();
-
+	const onSubmit = (e) => {
+		e.preventDefault();
 		createProfile(formData, history, true);
 	};
 
@@ -55,12 +58,7 @@ const EditProfile = ({
 
 			<form className='form' onSubmit={(e) => onSubmit(e)}>
 				<div className='form-elements'>
-					<select
-						name='status'
-						id=''
-						value='status'
-						onChange={(e) => onChange(e)}
-					>
+					<select name='status' value={status} onChange={(e) => onChange(e)}>
 						<option value='0'>select your status</option>
 						<option value='master chef'>master chef</option>
 						<option value='head of chef'>head of chef</option>
@@ -72,7 +70,7 @@ const EditProfile = ({
 				<div className='form-elements'>
 					<input
 						type='text'
-						placeholder='restaurant'
+						placeholder='restaurant name '
 						name='restaurant'
 						value={restaurant}
 						onChange={(e) => onChange(e)}
@@ -95,12 +93,13 @@ const EditProfile = ({
 				<div className='form-elements'>
 					<input
 						type='text'
-						placeholder='restaurant location'
+						placeholder='location'
 						name='location'
 						value={location}
 						onChange={(e) => onChange(e)}
 					/>
 				</div>
+				<hr />
 
 				<div className='form-elements'>
 					<input

@@ -67,3 +67,8 @@ a:link {
 	background: greenyellow;
 	color: black;
 }
+
+td,
+.tborder {
+	border: 1px solid salmon;
+}

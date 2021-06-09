@@ -2,12 +2,13 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile } from '../../actions/profile';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const CreateProfile = ({ createProfile, history }) => {
 	// form data state
 	const [formData, setFormData] = useState({
 		restaurant: '',
+		status: '',
 		dishes: '',
 		about: '',
 		location: '',
@@ -16,25 +17,18 @@ const CreateProfile = ({ createProfile, history }) => {
 	});
 
 	// getting all the above data from the forms
-	const { restaurant, dishes, about, location, odysse, youtube } = formData;
+	const { restaurant, status, dishes, about, location, odysse, youtube } =
+		formData;
 
 	// social media input state
 	const [recipeVideo, setRecipeVideo] = useState(false);
-
-	//  toggle video button
-	// const onClickHandler = () => {
-	// 	useEffect(() => {
-	// 		recipeVideo = !recipeVideo;
-	// 	});
-	// };
 
 	const onChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 	};
 
-	const onSubmit = (event) => {
-		event.preventDefault();
-
+	const onSubmit = (e) => {
+		e.preventDefault();
 		createProfile(formData, history);
 	};
 
@@ -45,12 +39,7 @@ const CreateProfile = ({ createProfile, history }) => {
 
 			<form className='form' onSubmit={(e) => onSubmit(e)}>
 				<div className='form-elements'>
-					<select
-						name='status'
-						id=''
-						value='status'
-						onChange={(e) => onChange(e)}
-					>
+					<select name='status' value={status} onChange={(e) => onChange(e)}>
 						<option value='0'>select your status</option>
 						<option value='master chef'>master chef</option>
 						<option value='head of chef'>head of chef</option>
@@ -146,4 +135,4 @@ CreateProfile.propTypes = {
 	createProfile: PropTypes.func.isRequired,
 };
 
-export default connect(null, { createProfile })(withRouter(CreateProfile));
+export default connect(null, { createProfile })(CreateProfile);

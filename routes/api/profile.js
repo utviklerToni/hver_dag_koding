@@ -5,6 +5,7 @@ const { check, validationResult } = require('express-validator');
 // importing the Schemas
 const User = require('../../models/User');
 const Profile = require('../../models/Profile');
+const Post = require('../../models/Post');
 
 // #req type  > POST
 // #endpoint  > api/profile
@@ -148,6 +149,9 @@ router.get('/user/:user_id', async (req, res) => {
 // access => Private
 router.delete('/', auth, async (req, res) => {
 	try {
+		// removing user posts before permanently deleting their account
+		await Post.deleteMany({ user: req.user.id });
+
 		await Profile.findOneAndRemove({ user: req.user.id });
 
 		await User.findOneAndRemove({ _id: req.user.id });

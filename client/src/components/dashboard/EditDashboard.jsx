@@ -20,11 +20,15 @@ const EditDashboard = () => {
 			<Link to='/edit-profile'>
 				<ColorButton variant='contained'>Edit Profile</ColorButton>
 			</Link>
-
 			<br />
 			<br />
 			<Link to='/add-profile'>
 				<ColorButton variant='contained'>Add Profile</ColorButton>
+			</Link>
+			<br />
+			<br />
+			<Link to='/add-experience'>
+				<ColorButton variant='contained'>Add Experience</ColorButton>
 			</Link>
 		</div>
 	);

@@ -12,10 +12,13 @@ import setAuthToken from './utils/setAuthToken';
 import { Provider } from 'react-redux';
 import { loadUser } from './actions/auth';
 import store from './store';
+
+// profile routes
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 import CreateProfile from './components/profile/CreateProfile';
 import EditProfile from './components/profile/EditProfile';
+import AddExperience from './components/profile/AddExperience';
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token);
@@ -47,6 +50,11 @@ const App = () => {
 								exact
 								path='/edit-profile'
 								component={EditProfile}
+							/>
+							<PrivateRoute
+								exact
+								path='/add-experience'
+								component={AddExperience}
 							/>
 						</Switch>
 					</section>
