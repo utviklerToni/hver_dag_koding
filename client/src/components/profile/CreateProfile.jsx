@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 const CreateProfile = ({ createProfile, history }) => {
 	// form data state
 	const [formData, setFormData] = useState({
-		restaurant: '',
 		status: '',
+		restaurant: '',
 		dishes: '',
 		about: '',
 		location: '',
@@ -17,7 +17,7 @@ const CreateProfile = ({ createProfile, history }) => {
 	});
 
 	// getting all the above data from the forms
-	const { restaurant, status, dishes, about, location, odysse, youtube } =
+	const { status, restaurant, dishes, about, location, odysse, youtube } =
 		formData;
 
 	// social media input state

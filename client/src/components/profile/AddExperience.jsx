@@ -20,14 +20,14 @@ const AddExperience = ({ addExperience, history }) => {
 	const { restaurant, title, location, from, to, current, description } =
 		formData;
 
-	const onChange = (event) =>
+	const onChange = (e) =>
 		setFormData({
 			...formData,
-			[event.target.name]: event.target.value,
+			[e.target.name]: e.target.value,
 		});
 
-	const onSubmit = (event) => {
-		event.preventDefault();
+	const onSubmit = (e) => {
+		e.preDefault();
 		addExperience(formData, history);
 	};
 
@@ -35,7 +35,7 @@ const AddExperience = ({ addExperience, history }) => {
 		<Fragment>
 			<h1>Add your experience of chef/cook career</h1>
 			<p>Let people know where it all started </p>
-			<form onSubmit={(event) => onSubmit(event)}>
+			<form onSubmit={(e) => onSubmit(e)}>
 				<div className='form-elements'>
 					<input
 						type='text'
@@ -43,7 +43,7 @@ const AddExperience = ({ addExperience, history }) => {
 						name='title'
 						required
 						value={title}
-						onChange={(event) => onChange(event)}
+						onChange={(e) => onChange(e)}
 					/>
 				</div>
 				<div className='form-elements'>
@@ -53,7 +53,7 @@ const AddExperience = ({ addExperience, history }) => {
 						name='restaurant'
 						required
 						value={restaurant}
-						onChange={(event) => onChange(event)}
+						onChange={(e) => onChange(e)}
 					/>
 				</div>
 				<div className='form-elements'>
@@ -62,7 +62,7 @@ const AddExperience = ({ addExperience, history }) => {
 						placeholder='location'
 						name='location'
 						value={location}
-						onChange={(event) => onChange(event)}
+						onChange={(e) => onChange(e)}
 					/>
 				</div>
 				<div className='form-elements'>
@@ -71,7 +71,7 @@ const AddExperience = ({ addExperience, history }) => {
 						type='date'
 						name='from'
 						value={from}
-						onChange={(event) => onChange(event)}
+						onChange={(e) => onChange(e)}
 					/>
 				</div>
 				<div className='form-elements'>
@@ -81,7 +81,7 @@ const AddExperience = ({ addExperience, history }) => {
 							name='current'
 							checked={current}
 							value={current}
-							onChange={(event) => {
+							onChange={(e) => {
 								setFormData({
 									...formData,
 									current: !current,
@@ -99,7 +99,7 @@ const AddExperience = ({ addExperience, history }) => {
 						name='to'
 						value={to}
 						disabled={currentChef ? 'disabled' : ''}
-						onChange={(event) => onChange(event)}
+						onChange={(e) => onChange(e)}
 					/>
 				</div>
 				<div className='form-elements'>
@@ -109,7 +109,7 @@ const AddExperience = ({ addExperience, history }) => {
 						rows='9'
 						value={description}
 						placeholder='descriptions...'
-						onChange={(event) => onChange(event)}
+						onChange={(e) => onChange(e)}
 					></textarea>
 				</div>
 				<input type='submit' value='Submit' />

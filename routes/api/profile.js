@@ -46,6 +46,8 @@ router.post(
 		auth,
 		[
 			check('status', 'Status is required').not().isEmpty(),
+
+			check('restaurant', 'name of the restaurant is required').not().isEmpty(),
 			check('dishes', 'List of dish are required').not().isEmpty(),
 		],
 	],
@@ -56,7 +58,7 @@ router.post(
 			return res.status(400).json({ errors: errors.array() });
 		}
 
-		const { restaurant, status, dishes, about, location, odysse, youtube } =
+		const { status, restaurant, dishes, about, location, odysse, youtube } =
 			req.body;
 
 		// setting profileFields

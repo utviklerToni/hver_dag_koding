@@ -14,7 +14,6 @@ const EditProfile = ({
 	const [formData, setFormData] = useState({
 		status: '',
 		restaurant: '',
-
 		dishes: '',
 		about: '',
 		location: '',
@@ -41,7 +40,7 @@ const EditProfile = ({
 			odysse: loading || !profile.video ? '' : profile.video.odysse,
 			youtube: loading || !profile.video ? '' : profile.video.youtube,
 		});
-	}, [loading]);
+	}, [loading, getCurrentProfile]);
 
 	const onChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });

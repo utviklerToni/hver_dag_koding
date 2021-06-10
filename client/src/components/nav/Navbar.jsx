@@ -7,6 +7,9 @@ import { logout } from '../../actions/auth';
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const authLinks = (
 		<ul className='flex-box nav-margin'>
+			<li>
+				<Link to='/profiles'>Chefs</Link>
+			</li>
 			<li className='border-box'>
 				<Link to='/dashboard' className='nav-pad'>
 					dashboard
@@ -23,9 +26,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const guestLinks = (
 		<ul className='flex-box nav-margin'>
 			<li className='border-box'>
-				<Link to='/dashboard' className='nav-pad'>
-					Hjem
-				</Link>
+				<Link to='/profiles'>Chefs</Link>
 			</li>
 			<li className='border-box'>
 				<Link to='/register' className='nav-pad'>

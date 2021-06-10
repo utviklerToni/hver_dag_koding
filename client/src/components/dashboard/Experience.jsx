@@ -14,12 +14,7 @@ const Experience = ({ experience, deleteExperience }) => {
 				{exp.to ? formatDate(exp.to) : 'currently working here'}
 			</td>
 			<td>
-				<button
-					onClick={() => deleteExperience(exp._id)}
-					className='btn btn-danger'
-				>
-					Delete
-				</button>
+				<button onClick={() => deleteExperience(exp._id)}>Delete</button>
 			</td>
 		</tr>
 	));
@@ -28,7 +23,7 @@ const Experience = ({ experience, deleteExperience }) => {
 			<h2 className='my-2'>Experience Credentials</h2>
 			<table className='tborder'>
 				<thead>
-					<tr className>
+					<tr>
 						<th>Restaurant</th>
 						<th className='hide-sm'>Title</th>
 						<th className='hide-sm'>Years</th>
