@@ -1,6 +1,6 @@
 * {
-	/* margin: 0;
-	padding: 0; */
+	margin: 0;
+	padding: 0;
 	list-style-type: none;
 }
 
@@ -10,20 +10,13 @@ a:link {
 	text-decoration: none;
 }
 
-.flex-box {
-	display: flex;
-}
-
+/*
 .nav-background-color {
 	background-color: rgb(116, 184, 116);
 }
 
 .nav-margin {
 	margin: 0 30px;
-}
-
-.border-box {
-	border: 3px solid rgb(184, 69, 69);
 }
 
 .nav-pad {
@@ -71,4 +64,63 @@ a:link {
 td,
 .tborder {
 	border: 1px solid salmon;
+}
+
+.profiles {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.react-btn {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 9px 18px;
+}
+
+.react-btn a {
+	margin: 0px 10px;
+}
+.container {
+	margin: auto;
+	max-width: 72%;
+}
+
+.form {
+	max-width: 70%;
+	margin: auto;
+	height: 100%;
+	border-radius: 3px;
+} */
+
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='text'],
+textarea {
+	width: 100%;
+	margin: 10px 0;
+	padding: 12px 10px;
+	outline: none;
+	border-radius: 4px;
+	border: 3px solid #ec8a00;
+	font-family: 'AndaleMono', monospace;
+	font-size: 16px;
+}
+
+@media (max-width: 851px) {
+	input[type='email'],
+	input[type='number'],
+	input[type='password'],
+	input[type='text'],
+	textarea {
+		width: 100%;
+		margin: 10px 0;
+		padding: 12px 10px;
+		outline: none;
+		border-radius: 4px;
+		border: 3px solid #ec8a00;
+		font-family: 'AndaleMono', monospace;
+		font-size: 16px;
+	}
 }

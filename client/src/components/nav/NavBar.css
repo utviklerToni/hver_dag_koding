@@ -1,0 +1,15 @@
+.navigation {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-end;
+
+	/* the border is temp */
+	border: 1px solid blue;
+	background-color: cadetblue;
+	margin: auto;
+}
+
+.navigation li {
+	margin: 15px 9px;
+}

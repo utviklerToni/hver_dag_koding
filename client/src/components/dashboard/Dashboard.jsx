@@ -22,8 +22,8 @@ const Dashboard = ({
 		<Spinner />
 	) : (
 		<Fragment>
-			<h1 className=''>Dashboard</h1>
-			<p>welcome {user && user.name}</p>
+			<h3 className=''>Dashboard</h3>
+			<h1>VELKOMENN {user && user.name}</h1>
 			{profile !== null ? (
 				<Fragment>
 					<EditDashboard />

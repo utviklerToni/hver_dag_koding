@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 import { Button } from '@material-ui/core';
+import '../../App.css';
 
 const Login = ({ login, isAuthenticated }) => {
 	const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ const Login = ({ login, isAuthenticated }) => {
 		<Fragment>
 			<p>Login in to your profile</p>
 
-			<form onSubmit={(e) => onSubmit(e)}>
+			<form onSubmit={(e) => onSubmit(e)} className='form'>
 				<div className='form-element'>
 					<input
 						type='email'

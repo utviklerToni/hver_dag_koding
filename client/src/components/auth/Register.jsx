@@ -46,7 +46,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 						name='name'
 						value={name}
 						onChange={(e) => onChange(e)}
-						required
+						// required
 					/>
 				</div>
 				<div className='form-element'>
@@ -56,7 +56,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 						value={email}
 						name='email'
 						onChange={(e) => onChange(e)}
-						required
+						// required
 					/>
 				</div>
 				<div className='form-element'>
@@ -66,7 +66,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 						value={password}
 						name='password'
 						onChange={(e) => onChange(e)}
-						required
+						// required
 					/>
 				</div>
 				<div className='form-element'>
@@ -76,7 +76,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 						value={re_enter_password}
 						name='re_enter_password'
 						onChange={(e) => onChange(e)}
-						required
+						// required
 					/>
 				</div>
 				<button type='submit'>Create</button>
