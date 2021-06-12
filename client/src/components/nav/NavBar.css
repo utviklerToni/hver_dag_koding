@@ -2,14 +2,22 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	align-items: flex-end;
-
+	align-items: center;
 	/* the border is temp */
-	border: 1px solid blue;
+	/* border: 1px solid blue; */
 	background-color: cadetblue;
 	margin: auto;
+	padding: 18px;
 }
 
-.navigation li {
+.navigation ul,
+h1 {
+	margin: 9px 18px;
+	padding: 9px 18px;
+}
+
+.navigation li a {
 	margin: 15px 9px;
+	background-color: rgb(47, 255, 109);
+	padding: 9px 18px;
 }

@@ -52,7 +52,7 @@ const Login = ({ login, isAuthenticated }) => {
 					/>
 				</div>
 				<br />
-				<Button variant='contained' color='primary' type='submit'>
+				<Button variant='contained' color='primary' size='small' type='submit'>
 					Login
 				</Button>
 			</form>

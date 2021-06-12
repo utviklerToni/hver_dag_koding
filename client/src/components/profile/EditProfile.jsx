@@ -40,16 +40,7 @@ const EditProfile = ({
 			odysse: loading || !profile.video ? '' : profile.video.odysse,
 			youtube: loading || !profile.video ? '' : profile.video.youtube,
 		});
-	}, [
-		loading,
-		getCurrentProfile,
-		profile.about,
-		profile.dishes,
-		profile.location,
-		profile.restaurant,
-		profile.status,
-		profile.video,
-	]);
+	}, [loading, getCurrentProfile]);
 
 	const onChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });

@@ -22,9 +22,10 @@ const ProfileItem = ({
 				<Link to={`/profile/${_id}`}>view profile</Link>
 			</div>
 			<ul>
-				{dishes.slice(0, 4).map((skill, index) => (
+				{/* if you wanna display chef's selected recipe/dish on main profile list page */}
+				{/* {dishes.slice(0, 4).map((skill, index) => (
 					<li key={index}>{skill}</li>
-				))}
+				))} */}
 			</ul>
 		</div>
 	);
