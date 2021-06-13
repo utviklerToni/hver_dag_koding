@@ -1,13 +1,23 @@
+/* some trial colors for navigation bars */
+.trial-colors {
+	display: none;
+	/* color: #e1c885; */
+	/* background-color: #3ceacd; */
+	/* background-color: rgb(60, 255, 60); */
+	/* background-color: #2ebba3; */
+	/* color: #9b8a5b; */
+	/* background-color: rgb(76, 216, 76); */
+	/* box-shadow: rgb(0 171 85/ 27%) 0px 8px 16px 0px; */
+}
+
 .navigation {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
-	/* the border is temp */
-	/* border: 1px solid blue; */
-	background-color: cadetblue;
+	background-color: rgb(92, 109, 88);
 	margin: auto;
-	padding: 18px;
+	padding: 9px;
 }
 
 .navigation ul,
@@ -16,8 +26,23 @@ h1 {
 	padding: 9px 18px;
 }
 
-.navigation li a {
+.react-btn {
 	margin: 15px 9px;
-	background-color: rgb(47, 255, 109);
+
+	color: black;
+
+	background-color: #bb8f5a;
+
 	padding: 9px 18px;
+	border-radius: 3px;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+		box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+		border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+		color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+	box-shadow: rgb(187 143 90/ 36%) 0px 8px 16px 0px;
+	text-transform: capitalize;
+}
+
+.react-btn:hover {
+	background-color: #9b6f39;
 }

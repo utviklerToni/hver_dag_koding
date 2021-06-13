@@ -3,7 +3,6 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
-import { Button } from '@material-ui/core';
 import '../../App.css';
 
 const Login = ({ login, isAuthenticated }) => {
@@ -29,7 +28,8 @@ const Login = ({ login, isAuthenticated }) => {
 
 	return (
 		<Fragment>
-			<p>Login in to your profile</p>
+			<h1>Login</h1>
+			<p>Login in to your profile to get started</p>
 
 			<form onSubmit={(e) => onSubmit(e)} className='form'>
 				<div className='form-element'>
@@ -51,18 +51,12 @@ const Login = ({ login, isAuthenticated }) => {
 						minLength={6}
 					/>
 				</div>
-				<br />
-				<Button variant='contained' color='primary' size='small' type='submit'>
-					Login
-				</Button>
+
+				<input type='submit' value='login' />
 			</form>
 			<p>
 				not registered yet?
-				<Link to='/register'>
-					<Button variant='contained' color='primary'>
-						Register now
-					</Button>
-				</Link>
+				<Link to='/register'>Register now</Link>
 			</p>
 		</Fragment>
 	);

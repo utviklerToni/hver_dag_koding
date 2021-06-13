@@ -9,15 +9,22 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const authLinks = (
 		<ul className='navigation'>
 			<li>
-				<Link to='/profiles'>Chefs</Link>
+				<Link to='/profiles' className='react-btn'>
+					Chefs
+				</Link>
 			</li>
 			<li className='border-box'>
-				<Link to='/dashboard' className='nav-pad'>
+				<Link to='/dashboard' className='react-btn'>
 					dashboard
 				</Link>
 			</li>
+			<li className='border-box'>
+				<Link to='/posts' className='react-btn'>
+					Posts
+				</Link>
+			</li>
 			<li>
-				<a href='#!' onClick={logout}>
+				<a href='#!' onClick={logout} className='react-btn'>
 					Logout
 				</a>
 			</li>
@@ -27,15 +34,17 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const guestLinks = (
 		<ul className='navigation'>
 			<li className='border-box'>
-				<Link to='/profiles'>Chefs</Link>
+				<Link to='/profiles' className='react-btn'>
+					Chefs
+				</Link>
 			</li>
 			<li className='border-box'>
-				<Link to='/register' className='nav-pad'>
+				<Link to='/register' className='react-btn'>
 					register
 				</Link>
 			</li>
 			<li className='border-box'>
-				<Link to='/login' className='nav-pad'>
+				<Link to='/login' className='react-btn'>
 					Login
 				</Link>
 			</li>

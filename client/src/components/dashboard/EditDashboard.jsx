@@ -1,35 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 
-const ColorButton = withStyles((theme) => ({
-	root: {
-		color: 'white',
-		borderRadius: '3px',
-		background: '#00B46E',
-		'&:hover': {
-			backgroundColor: '#008C5A',
-		},
-	},
-}))(Button);
+import './Dashboard.css';
 
 const EditDashboard = () => {
 	return (
-		<div className='react-btn'>
-			<Link to='/edit-profile'>
-				<ColorButton variant='contained'>Edit Profile</ColorButton>
-			</Link>
-			<br />
-			<br />
-			<Link to='/add-profile'>
-				<ColorButton variant='contained'>Add Profile</ColorButton>
-			</Link>
-			<br />
-			<br />
-			<Link to='/add-experience'>
-				<ColorButton variant='contained'>Add Experience</ColorButton>
-			</Link>
+		<div className='flex-box'>
+			<div>
+				<Link to='/edit-profile' className='react-btn'>
+					edit profile
+				</Link>
+			</div>
+
+			<div>
+				<Link to='/add-experience' className='react-btn'>
+					add experience
+				</Link>
+			</div>
 		</div>
 	);
 };
