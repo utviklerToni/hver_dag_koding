@@ -167,7 +167,7 @@ router.put('/unlike/:id', auth, async (req, res) => {
 // desc  	=> comment on a post
 // access => private
 router.post(
-	'/',
+	'/comment/:id',
 	[auth, [check('text', 'Text is required').not().isEmpty()]],
 	async (req, res) => {
 		const errors = validationResult(req);
@@ -226,11 +226,13 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
 			.map((comment) => comment.user.toString())
 			.indexOf(req.user.id);
 
-		post.likes.splice(removeIndex);
+		post.comments = post.comments.filter(
+			({ id }) => id !== req.params.comment_id
+		);
 
 		await post.save();
 
-		res.json(post.likes);
+		return res.json(post.comments);
 	} catch (err) {
 		console.error(err.message);
 		res.status(500).send('server error');

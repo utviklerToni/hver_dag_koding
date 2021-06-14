@@ -41,7 +41,7 @@ const PostItem = ({
 					>
 						remove like
 					</button>
-					<Link to={`/replies/${_id}`}>
+					<Link to={`/posts/${_id}`}>
 						<button>
 							replies: {comments.length > 0 && <span>{comments.length}</span>}
 						</button>
