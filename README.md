@@ -8,4 +8,4 @@ a simple full-stack website for chefs to share recipe -->
 
 this web app is using REST API & has CRUD functionality.
 
-technologies used: react.js, node.js, mongodb
+stuff i used in this project: react.js, node.js, mongodb
