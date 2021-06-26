@@ -1,0 +1,26 @@
+.greet_outer {
+  width: 72vh;
+  max-width: 100%;
+  margin-top: 6rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  justify-content: center;
+}
+
+.greet_outer h1,
+p,
+.buttons {
+  text-align: center;
+}
+
+.landing_greet {
+  text-align: center;
+  text-decoration: underline;
+  border-radius: 3px;
+}
+
+.card {
+  border: 3px solid blue;
+  border-radius: 6px;
+}
