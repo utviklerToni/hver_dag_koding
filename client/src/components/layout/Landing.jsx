@@ -13,7 +13,7 @@ const Landing = ({ isAuthenticated }) => {
 
   return (
     <section className="landing">
-      <div className="dark-overlay">
+      
         <div className="greet_outer card">
           <h1 className="landing_greet">Velkommen til NorsKokk</h1>
           <p className="lead">create your profile to explore</p>
@@ -26,7 +26,7 @@ const Landing = ({ isAuthenticated }) => {
               login
             </Link>
           </div>
-        </div>
+   
       </div>
     </section>
   );
