@@ -16,7 +16,7 @@ input[type=email], input[type=number], input[type=password], input[type=text], t
 
 @media screen and (max-width: 320px) {
 	.auth_sm_screen {
-		max-width: 72vw;
+		max-width: 84vw;
 		/* box-shadow: 0px 0px 3px 2px rgb(216 213 213); */
 		margin: 12px;
 	}
