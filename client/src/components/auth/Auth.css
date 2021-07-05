@@ -1,0 +1,23 @@
+.btn-border {
+  border: 1px solid #bb8f5a;
+}
+
+input[type=email], input[type=number], input[type=password], input[type=text], textarea {
+  width: 100%;
+  margin: 3px 3px;
+  padding: 6px 9px;
+  outline: none;
+  border-radius: 3px;
+  border: 3px solid #5A6D59;
+  font-family: "AndaleMono",monospace;
+  /* font-size: 16px; */
+}
+
+
+@media screen and (max-width: 320px) {
+	.auth_sm_screen {
+		max-width: 72vw;
+		/* box-shadow: 0px 0px 3px 2px rgb(216 213 213); */
+		margin: 12px;
+	}
+}

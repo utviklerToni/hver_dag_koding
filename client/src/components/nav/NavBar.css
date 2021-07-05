@@ -57,5 +57,6 @@ h1 {
   .react-btn {
     padding: 6px 9px;
     font-size: 12px;
+    margin: 9px 6px;
   }
 }

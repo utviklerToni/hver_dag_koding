@@ -35,6 +35,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
 	return (
 		<Fragment>
+			<div className='auth_sm_screen'>
 			<h1>Sign up</h1>
 			<p>create your account</p>
 
@@ -78,13 +79,15 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 						onChange={(e) => onChange(e)}
 						// required
 					/>
-				</div>
-				<button type='submit'>Create</button>
+					</div>
+					
+				<button type='submit' className='react-btn btn-border'>Create</button>
 			</form>
 
 			<p>
-				already registered ? <Link to='/login'>Login now</Link>
+					already registered ? <Link to='/login' className='react-btn'>Login</Link>
 			</p>
+			</div>
 		</Fragment>
 	);
 };

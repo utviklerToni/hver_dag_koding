@@ -29,6 +29,7 @@ const Login = ({ login, isAuthenticated }) => {
 
 	return (
 		<Fragment>
+			<div className="auth_sm_screen">
 			<h1>Login</h1>
 			<p>Login in to your profile to get started</p>
 
@@ -53,12 +54,13 @@ const Login = ({ login, isAuthenticated }) => {
 					/>
 				</div>
 
-				<input type='submit' value='login' />
+				<input type='submit' value='login' className='react-btn btn-border'/>
 			</form>
 			<p>
-				not registered yet?
-				<Link to='/register'>Register now</Link>
+				<div>not registered yet?</div> <br />
+				<div><Link to='/register' className='react-btn'>Register now</Link></div>
 			</p>
+			</div>
 		</Fragment>
 	);
 };
