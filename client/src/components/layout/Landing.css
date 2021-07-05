@@ -7,11 +7,11 @@
 	justify-content: center;
 }
 
-.greet_outer h1,
+/* .greet_outer h1,
 p,
 .buttons {
 	text-align: center;
-}
+} */
 
 .buttons {
 	margin-top: 3rem;

@@ -15,8 +15,11 @@ const Landing = ({ isAuthenticated }) => {
 		<section className='landing'>
 			<div className='greet_outer card'>
 				<h1 className='landing_greet'>Velkommen til NorsKokk</h1>
-				<p className='lead'>create your profile to explore</p>
-				<p>or explore list of chefs</p>
+				<p className='lead'>Create your profile, if you are a chef</p>
+				<p>
+					or Click on chefs above to explore different chefs here on this
+					website
+				</p>
 				<div className='buttons'>
 					<Link to='/register' className='border-box pad-marg react-btn'>
 						sign up
