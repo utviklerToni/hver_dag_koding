@@ -2,6 +2,12 @@
 	border: 1px solid #bb8f5a;
 }
 
+.auth_nm_screen {
+	margin: auto;
+	width: 36vw;
+	max-width: 100%;
+}
+
 input[type='email'],
 input[type='number'],
 input[type='password'],
@@ -12,7 +18,7 @@ textarea {
 	padding: 6px 9px;
 	outline: none;
 	border-radius: 3px;
-	border: 3px solid #a3220c;
+	border: 3px solid #5a6d59;
 	font-family: 'AndaleMono', monospace;
 	/* font-size: 16px; */
 }

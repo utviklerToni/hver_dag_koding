@@ -35,58 +35,63 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
 	return (
 		<Fragment>
-			<div className='auth_sm_screen'>
-			<h1>Sign up</h1>
-			<p>create your account</p>
+			<div className='auth_sm_screen auth_nm_screen'>
+				<h1>Sign up</h1>
+				<p>create your account</p>
 
-			<form onSubmit={(e) => onSubmit(e)}>
-				<div className='form-element'>
-					<input
-						type='text'
-						placeholder='name'
-						name='name'
-						value={name}
-						onChange={(e) => onChange(e)}
-						// required
-					/>
-				</div>
-				<div className='form-element'>
-					<input
-						type='email'
-						placeholder='email address'
-						value={email}
-						name='email'
-						onChange={(e) => onChange(e)}
-						// required
-					/>
-				</div>
-				<div className='form-element'>
-					<input
-						type='password'
-						placeholder='password'
-						value={password}
-						name='password'
-						onChange={(e) => onChange(e)}
-						// required
-					/>
-				</div>
-				<div className='form-element'>
-					<input
-						type='password'
-						placeholder='re-enter password'
-						value={re_enter_password}
-						name='re_enter_password'
-						onChange={(e) => onChange(e)}
-						// required
-					/>
+				<form onSubmit={(e) => onSubmit(e)}>
+					<div className='form-element'>
+						<input
+							type='text'
+							placeholder='name'
+							name='name'
+							value={name}
+							onChange={(e) => onChange(e)}
+							// required
+						/>
 					</div>
-					
-				<button type='submit' className='react-btn btn-border'>Create</button>
-			</form>
+					<div className='form-element'>
+						<input
+							type='email'
+							placeholder='email address'
+							value={email}
+							name='email'
+							onChange={(e) => onChange(e)}
+							// required
+						/>
+					</div>
+					<div className='form-element'>
+						<input
+							type='password'
+							placeholder='password'
+							value={password}
+							name='password'
+							onChange={(e) => onChange(e)}
+							// required
+						/>
+					</div>
+					<div className='form-element'>
+						<input
+							type='password'
+							placeholder='re-enter password'
+							value={re_enter_password}
+							name='re_enter_password'
+							onChange={(e) => onChange(e)}
+							// required
+						/>
+					</div>
 
-			<p>
-					already registered ? <Link to='/login' className='react-btn'>Login</Link>
-			</p>
+					<button type='submit' className='react-btn btn-border'>
+						Create
+					</button>
+				</form>
+
+				<p>
+					already registered ?{' '}
+					<Link to='/login' className='react-btn'>
+						Login
+					</Link>
+				</p>
 			</div>
 		</Fragment>
 	);
